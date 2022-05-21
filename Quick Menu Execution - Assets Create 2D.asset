@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edc947b884bb37439ea0aa2b4baee52, type: 3}
+  m_Name: Quick Menu Execution - Assets Create 2D
+  m_EditorClassIdentifier: 
+  visible: 1
+  menuItems:
+  - visible: 1
+    category: Create
+    subCategory: Sprite
+    title: Square
+    description: 
+    path: Assets/Create/2D/Sprites/Square
+  - visible: 1
+    category: Create
+    subCategory: Sprite
+    title: Circle
+    description: 
+    path: Assets/Create/2D/Sprites/Circle
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Capsule
+    description: 
+    path: Assets/Create/2D/Sprites/Capsule
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Isometric Diamond
+    description: 
+    path: Assets/Create/2D/Sprites/Isometric Diamond
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Hexagon Flat-Top
+    description: 
+    path: Assets/Create/2D/Sprites/Hexagon Flat-Top
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Hexagon Pointed-Top
+    description: 
+    path: Assets/Create/2D/Sprites/Hexagon Pointed-Top
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: 9-Sliced
+    description: 
+    path: Assets/Create/2D/Sprites/9-Sliced
+  - visible: 0
+    category: Create
+    subCategory: Tile Palette
+    title: Rectangular
+    description: 
+    path: Assets/Create/2D/Tile Palette/Rectangular
+  - visible: 0
+    category: Create
+    subCategory: Tile Palette
+    title: Hexagonal Flat-Top
+    description: 
+    path: Assets/Create/2D/Tile Palette/Hexagonal Flat-Top
+  - visible: 0
+    category: Create
+    subCategory: Tile Palette
+    title: Hexagonal Pointed-Top
+    description: 
+    path: Assets/Create/2D/Tile Palette/Hexagonal Pointed-Top
+  - visible: 0
+    category: Create
+    subCategory: Tile Palette
+    title: Isometric
+    description: 
+    path: Assets/Create/2D/Tile Palette/Isometric
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Sprite Shape Profile
+    description: 
+    path: Assets/Create/2D/Sprite Shape Profile
+  - visible: 0
+    category: Create
+    subCategory: Sprite
+    title: Sprite Library Asset
+    description: 
+    path: Assets/Create/2D/Sprite Library Asset
+  - visible: 1
+    category: Create
+    subCategory: 2D
+    title: Physics Material 2D
+    description: 
+    path: Assets/Create/2D/Physics Material 2D
+  - visible: 0
+    category: Create
+    subCategory: 2D
+    title: Sprite Atlas
+    description: 
+    path: Assets/Create/2D/Sprite Atlas
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Animated Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Animated Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Rule Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Rule Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Isometric Rule Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Isometric Rule Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Hexagonal Rule Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Hexagonal Rule Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Rule Override Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Rule Override Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Advanced Rule Override Tile
+    description: 
+    path: Assets/Create/2D/Tiles/Advanced Rule Override Tile
+  - visible: 0
+    category: Create
+    subCategory: Tile
+    title: Custom Rule Tile Script
+    description: 
+    path: Assets/Create/2D/Tiles/Custom Rule Tile Script
