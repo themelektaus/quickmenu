@@ -17,8 +17,8 @@ namespace QuickMenu
 
         public string subCategory => null;
 
-        Type type;
-        Action<Type> command;
+        readonly Type type;
+        readonly Action<Type> command;
 
         public TypeSelectorMenuItem(Type type, Action<Type> command)
         {
