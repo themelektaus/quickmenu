@@ -7,6 +7,7 @@ namespace QuickMenu
 	[CreateAssetMenu]
 	public class QuickMenuExecution : ScriptableObject
 	{
+		public bool active = true;
 		public bool visible = true;
 
 		[Serializable]

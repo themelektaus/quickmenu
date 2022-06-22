@@ -352,10 +352,8 @@ namespace QuickMenu
 
         void SetItemInfo(VisualElement element, IMenuItem item)
         {
-            element.style.opacity = item.visible ? 1 : .5f;
-
-            element.Q<Label>("ItemCategory").style.backgroundColor = item.GetCategoryColor(.6f);
             element.Q<Label>("ItemCategory").text = item.category;
+            element.Q<Label>("ItemCategory").style.backgroundColor = item.GetCategoryColor(.6f);
 
             if (string.IsNullOrEmpty(item.subCategory))
             {
@@ -364,11 +362,15 @@ namespace QuickMenu
             else
             {
                 element.Q<Label>("ItemCategory").AddToClassList("with-sub-category");
-                element.Q<Label>("ItemSubCategory").style.backgroundColor = item.GetSubCategoryColor(.6f);
+
                 element.Q<Label>("ItemSubCategory").text = item.subCategory;
+                element.Q<Label>("ItemSubCategory").style.backgroundColor = item.GetSubCategoryColor(.6f);
             }
 
+            var fontStyle = item.visible ? FontStyle.Bold : FontStyle.Normal;
+
             element.Q<Label>("ItemTitle").text = item.title;
+            element.Q<Label>("ItemTitle").style.unityFontStyleAndWeight = fontStyle;
 
             var itemDescription = element.Q<Label>("ItemDescription");
             if (string.IsNullOrWhiteSpace(item.description))

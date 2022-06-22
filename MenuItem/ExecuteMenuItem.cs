@@ -29,6 +29,7 @@ namespace QuickMenu
                     _executionAssets = AssetDatabase.FindAssets($"t:{typeof(QuickMenuExecution).FullName}")
                         .Select(x => AssetDatabase.GUIDToAssetPath(x))
                         .Select(x => AssetDatabase.LoadAssetAtPath<QuickMenuExecution>(x))
+                        .Where(x => x.active)
                         .ToHashSet();
                 }
 
