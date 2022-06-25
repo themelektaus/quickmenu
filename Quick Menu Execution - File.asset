@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edc947b884bb37439ea0aa2b4baee52, type: 3}
   m_Name: Quick Menu Execution - File
   m_EditorClassIdentifier: 
+  active: 1
   visible: 1
   menuItems:
   - visible: 1
@@ -20,21 +21,25 @@ MonoBehaviour:
     title: 
     description: 
     path: File/Save Project
+    requiresTransform: 0
   - visible: 1
     category: File
     subCategory: 
     title: Build Settings
     description: 
     path: File/Build Settings...
+    requiresTransform: 0
   - visible: 1
     category: File
     subCategory: 
     title: 
     description: 
     path: File/Build And Run
+    requiresTransform: 0
   - visible: 1
     category: File
     subCategory: 
     title: 
     description: 
     path: File/Exit
+    requiresTransform: 0
