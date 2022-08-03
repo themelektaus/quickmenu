@@ -58,7 +58,9 @@ namespace QuickMenu
                 else if (fieldInfo.FieldType == typeof(string))
                     field = CreateTextField(label, fieldInfo);
 
-                // TODO: Support objects
+                // MyTODO: Support objects
+                //         because at the moment Unity's Object Selector
+                //         is immetiatelly closing
                 else if (fieldInfo.FieldType == typeof(Object))
                     field = CreateObjectField(label, fieldInfo);
 

@@ -8,7 +8,7 @@ namespace QuickMenu
 {
     internal class UnityMenuItem : IMenuItem
     {
-        // TODO: Generate QuickMenu Executions
+        // MyTODO: Generate QuickMenu Executions
         //[AddQuickMenuItems]
         public static IEnumerable<IMenuItem> _AddQuickMenuItems()
         {
