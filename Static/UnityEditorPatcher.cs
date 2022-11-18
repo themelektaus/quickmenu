@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace QuickMenu
             Patch_SceneHierarchy_1(harmony);
             Patch_SceneHierarchy_2(harmony);
             Patch_AnimatorControllerTool(harmony);
+            //Patch_FindObjectsOfType(harmony);
         }
 
 
@@ -55,6 +57,41 @@ namespace QuickMenu
             var prefix = typeof(UnityEditorPatcher).GetMethod(name, Flags.Static | Flags.NonPublic);
             harmony.Patch(original, prefix: new(prefix));
         }
+
+        //static void Patch_FindObjectsOfType(Harmony harmony)
+        //{
+        //    var name = nameof(FindObjectsOfType);
+        //    var methods = typeof(Object).GetMethods(Flags.Static | Flags.Public);
+        //    MethodInfo original = null;
+        //    foreach (var method in methods)
+        //    {
+        //        if (method.Name != "FindObjectsOfType")
+        //            continue;
+        //
+        //        var g = method.GetGenericArguments();
+        //        if (g.Length > 0)
+        //            continue;
+        //
+        //        if (method.GetParameters().Length < 2)
+        //            continue;
+        //
+        //        original = method;
+        //
+        //        Debug.Log(original.FullDescription());
+        //
+        //        break;
+        //    }
+        //
+        //    if (original is null)
+        //    {
+        //        Debug.Log("NOT FOUND");
+        //        return;
+        //
+        //    }
+        //
+        //    var prefix = typeof(UnityEditorPatcher).GetMethod(name, Flags.Static | Flags.NonPublic);
+        //    harmony.Patch(original, prefix: new(prefix));
+        //}
 
 
 
@@ -115,7 +152,7 @@ namespace QuickMenu
 
             if (e.type != EventType.MouseUp)
                 return true;
-            
+
             if (Selection.activeObject is not UnityEditor.Animations.AnimatorStateMachine)
                 return true;
 
@@ -123,6 +160,12 @@ namespace QuickMenu
 
             return false;
         }
+
+        //static bool FindObjectsOfType(System.Type type, bool includeInactive)
+        //{
+        //    Debug.Log("HURN: " + type.FullName);
+        //    return false;
+        //}
 
 
 
