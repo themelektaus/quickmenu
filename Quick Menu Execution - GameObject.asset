@@ -27,14 +27,14 @@ MonoBehaviour:
     subCategory: 
     title: Set as first Sibling
     description: 
-    path: GameObject/Set as first Sibling
+    path: GameObject/Set as first sibling
     requiresTransform: 1
   - visible: 0
     category: 
     subCategory: 
     title: Set as last Sibling
     description: 
-    path: GameObject/Set as last Sibling
+    path: GameObject/Set as last sibling
     requiresTransform: 1
   - visible: 1
     category: 
