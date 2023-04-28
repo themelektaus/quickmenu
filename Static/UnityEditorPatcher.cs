@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using System.Reflection;
+
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -37,7 +37,7 @@ namespace QuickMenu
         static void Patch_SceneHierarchy_1(Harmony harmony)
         {
             var name = nameof(ItemContextClick);
-            var original = Utils.sceneHierarchy2.GetMethod(name, Flags.Instance | Flags.NonPublic);
+            var original = Utils.sceneHierarchy.GetMethod(name, Flags.Instance | Flags.NonPublic);
             var prefix = typeof(UnityEditorPatcher).GetMethod(nameof(ItemContextClick), Flags.Static | Flags.NonPublic);
             harmony.Patch(original, prefix: new(prefix));
         }
@@ -45,7 +45,7 @@ namespace QuickMenu
         static void Patch_SceneHierarchy_2(Harmony harmony)
         {
             var name = nameof(ContextClickOutsideItems);
-            var original = Utils.sceneHierarchy2.GetMethod(name, Flags.Instance | Flags.NonPublic);
+            var original = Utils.sceneHierarchy.GetMethod(name, Flags.Instance | Flags.NonPublic);
             var prefix = typeof(UnityEditorPatcher).GetMethod(name, Flags.Static | Flags.NonPublic);
             harmony.Patch(original, prefix: new(prefix));
         }

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEditor;
-using UnityEngine;
+
 using Flags = System.Reflection.BindingFlags;
 
 namespace QuickMenu
@@ -14,8 +15,7 @@ namespace QuickMenu
         {
             get
             {
-                if (_categories is null)
-                    _categories = new();
+                _categories ??= new();
 
                 if (_categories.Count == 0)
                 {
@@ -32,16 +32,16 @@ namespace QuickMenu
 
         public static QuickMenuCategoryDefinition.Category GetCategory(string name)
         {
-            if (name is null)
-                name = "";
-            name = name.ToLower();
+            name = (name ?? "").ToLower();
+
             if (categories.ContainsKey(name))
                 return categories[name];
-            return new QuickMenuCategoryDefinition.Category { name = name, color = new(1, 1, 1, .5f) };
+
+            return new() { name = name, color = new(1, 1, 1, .5f) };
         }
 
         public static readonly Type projectBrowser = typeof(EditorWindow).Assembly.GetType("UnityEditor.ProjectBrowser");
-        public static readonly Type sceneHierarchy2 = typeof(EditorWindow).Assembly.GetType("UnityEditor.SceneHierarchy");
+        public static readonly Type sceneHierarchy = typeof(EditorWindow).Assembly.GetType("UnityEditor.SceneHierarchy");
         public static readonly Type sceneHierarchyWindow = typeof(EditorWindow).Assembly.GetType("UnityEditor.SceneHierarchyWindow");
         public static readonly Type animatorControllerTool = typeof(UnityEditor.Graphs.Graph).Assembly.GetType("UnityEditor.Graphs.AnimatorControllerTool");
 
