@@ -1,4 +1,5 @@
 using UnityEditor.SceneManagement;
+
 using UnityEngine.SceneManagement;
 
 namespace QuickMenu
@@ -24,7 +25,7 @@ namespace QuickMenu
 				return true;
 			}
 
-			bool wasActive = EditorSceneManager.GetActiveScene() == context.scene;
+			bool wasActive = SceneManager.GetActiveScene() == context.scene;
 
 			SceneSetup[] setup = EditorSceneManager.GetSceneManagerSetup();
 			Scene? sceneBelow = null;
