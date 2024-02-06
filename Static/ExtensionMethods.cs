@@ -84,5 +84,12 @@ namespace QuickMenu
 
             return string.Join(' ', @this.Split(' ').Where(x => x != string.Empty));
         }
-    }
+
+        public static void ForcePreventDefault(this EventBase @this)
+        {
+            @this.StopPropagation();
+			if (@this.target is VisualElement element)
+			    element.focusController?.IgnoreEvent(@this);
+		}
+	}
 }

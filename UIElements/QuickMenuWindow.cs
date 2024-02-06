@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
 using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -219,8 +221,8 @@ namespace QuickMenu
             container = root.Q<VisualElement>("Container");
             container.RegisterCallback<ClickEvent>(e => e.StopPropagation());
 
-            this.allItems.Clear();
-            this.allItems.AddRange(
+            allItems.Clear();
+            allItems.AddRange(
                 menuItems.OrderBy(x => x.category ?? "")
                          .ThenBy(x => x.subCategory ?? "")
                          .ThenBy(x => x.title)
@@ -231,10 +233,10 @@ namespace QuickMenu
             searchField = root.Q<TextField>("SearchField");
             searchField.value = initSearchText;
 
-            searchFieldPlaceholder = root.Q<Label>("SearchFieldPlaceholder");
+			searchFieldPlaceholder = root.Q<Label>("SearchFieldPlaceholder");
 
-            searchField.RegisterCallback<KeyDownEvent>(OnKeyDown);
-            searchField.RegisterCallback<KeyUpEvent>(OnKeyUp);
+            searchField.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);
+            searchField.RegisterCallback<KeyUpEvent>(OnKeyUp, TrickleDown.TrickleDown);
             searchField.RegisterValueChangedCallback(SearchField_ValueChanged);
             searchField.Focus();
 
@@ -422,8 +424,7 @@ namespace QuickMenu
         {
             if (item is null && (e.keyCode == KeyCode.DownArrow || e.keyCode == KeyCode.UpArrow))
             {
-                e.PreventDefault();
-                e.StopPropagation();
+                e.ForcePreventDefault();
 
                 if (e.keyCode == KeyCode.DownArrow)
                     index++;
@@ -450,7 +451,7 @@ namespace QuickMenu
         void OnKeyUp(KeyUpEvent e)
         {
             if (e.keyCode == KeyCode.Menu)
-                e.PreventDefault();
+                e.ForcePreventDefault();
         }
 
         void OnKeyDown_Return(KeyDownEvent e)

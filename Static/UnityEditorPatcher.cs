@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 
 using UnityEditor;
-using UnityEditor.Callbacks;
+
 using UnityEngine;
 
 using Flags = System.Reflection.BindingFlags;
@@ -10,7 +10,16 @@ namespace QuickMenu
 {
     internal static class UnityEditorPatcher
     {
-        [DidReloadScripts]
+        static bool ShouldShowUp(Event e)
+        {
+#if UNITY_2023_2_OR_NEWER
+            return e.control;
+#else
+            return !e.control;
+#endif
+        }
+
+        [UnityEditor.Callbacks.DidReloadScripts]
         static void Patch()
         {
             var harmony = new Harmony("com.unity.editor.quickmenu");
@@ -99,7 +108,7 @@ namespace QuickMenu
         {
             var e = Event.current;
 
-            if (e.control)
+            if (!ShouldShowUp(e))
                 return true;
 
             if (e.type != EventType.ContextClick)
@@ -119,7 +128,8 @@ namespace QuickMenu
         static bool ContextClickOutsideItems()
         {
             var e = Event.current;
-            if (e.control)
+
+            if (!ShouldShowUp(e))
                 return true;
 
             Selection.activeObject = null;
@@ -132,7 +142,8 @@ namespace QuickMenu
         static bool ItemContextClick(int contextClickedItemID)
         {
             var e = Event.current;
-            if (e.control)
+
+            if (!ShouldShowUp(e))
                 return true;
 
             OpenQuickMenu(e);
@@ -144,7 +155,7 @@ namespace QuickMenu
         {
             var e = Event.current;
 
-            if (e.control)
+            if (!ShouldShowUp(e))
                 return true;
 
             if (e.button != 1)
