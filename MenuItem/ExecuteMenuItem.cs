@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -21,17 +22,12 @@ namespace QuickMenu
         {
             get
             {
-                if (_executionAssets is null)
-                    _executionAssets = new();
-
-                if (_executionAssets.Count == 0)
-                {
+                if (_executionAssets is null || _executionAssets.Count == 0)
                     _executionAssets = AssetDatabase.FindAssets($"t:{typeof(QuickMenuExecution).FullName}")
                         .Select(x => AssetDatabase.GUIDToAssetPath(x))
                         .Select(x => AssetDatabase.LoadAssetAtPath<QuickMenuExecution>(x))
                         .Where(x => x.active)
                         .ToHashSet();
-                }
 
                 return _executionAssets;
             }
@@ -84,7 +80,10 @@ namespace QuickMenu
         readonly QuickMenuExecution execution;
         readonly QuickMenuExecution.MenuItem menuItem;
 
-        public ExecuteMenuItem(QuickMenuExecution execution, QuickMenuExecution.MenuItem menuItem)
+        public ExecuteMenuItem(
+            QuickMenuExecution execution,
+            QuickMenuExecution.MenuItem menuItem
+        )
         {
             this.execution = execution;
             this.menuItem = menuItem;
