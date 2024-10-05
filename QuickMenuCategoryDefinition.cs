@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace QuickMenu
 {
-	[CreateAssetMenu]
-	public class QuickMenuCategoryDefinition : ScriptableObject
+    [CreateAssetMenu(menuName = "Quick Menu Category Definition")]
+    public class QuickMenuCategoryDefinition : ScriptableObject
 	{
 		[Serializable]
 		public struct Category

@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace QuickMenu
 {
-	[CreateAssetMenu]
-	public class QuickMenuExecution : ScriptableObject
+    [CreateAssetMenu(menuName = "Quick Menu Execution")]
+    public class QuickMenuExecution : ScriptableObject
 	{
 		public bool active = true;
 		public bool visible = true;
